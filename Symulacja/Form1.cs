@@ -115,7 +115,7 @@ namespace Symulacja
             procentWygranychGierZmieniajacWybor = Math.Round(procentWygranychGierZmieniajacWybor, 2);
             lbProcent.Text = procentWygranychGierZmieniajacWybor.ToString() + "%";
         }
-
+         
         private void btNowaGra_Click(object sender, EventArgs e)
         {
             if (drugiWybor != -1)
