@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Symulacja
@@ -13,10 +7,10 @@ namespace Symulacja
     public partial class Form1 : Form
     {
         Symulacja symulacja = new Symulacja();
-        Button[] przyciski = new Button[3];
-        int pierwszyWybor = -1;
-        int drugiWybor = -1;
-        int liczbaGier = 0;
+        Button[] przyciski = new Button[3]; //tablica z bramkami
+        int pierwszyWybor = -1;  //numer pierwszej wybranej bramki
+        int drugiWybor = -1; //numer drugiej wybranej bramki
+        int liczbaGier = 0; // liczba wszystkich rozegranych gier
         int wygranePierwotnyWybor = 0;
         int wygraneZmienionyWybor = 0;
         int przegranePierwotnyWybor = 0;
@@ -31,6 +25,7 @@ namespace Symulacja
             przyciski[2] = bramka3;
         }
 
+        //metoda kliknięcia bramki nr 1
         private void bramka1_Click(object sender, EventArgs e)
         {
             if (pierwszyWybor==-1)
@@ -50,7 +45,7 @@ namespace Symulacja
                 KoniecGry();
             }
         }
-
+        //metoda kliknięcia bramki nr 2
         private void bramka2_Click(object sender, EventArgs e)
         {
             if (pierwszyWybor == -1)
@@ -70,7 +65,7 @@ namespace Symulacja
                 KoniecGry();
             }
         }
-
+        //metoda kliknięcia bramki nr 3
         private void bramka3_Click(object sender, EventArgs e)
         {
             if (pierwszyWybor == -1)
@@ -91,6 +86,7 @@ namespace Symulacja
             }
         }
 
+        //Aktualizacja wyników
         private void KoniecGry()
         {
             lbLiczbaGier.Text = (++liczbaGier).ToString();
@@ -115,7 +111,8 @@ namespace Symulacja
             procentWygranychGierZmieniajacWybor = Math.Round(procentWygranychGierZmieniajacWybor, 2);
             lbProcent.Text = procentWygranychGierZmieniajacWybor.ToString() + "%";
         }
-         
+        
+        //rozpoczęcie nowej gry i wylosowanie nowej bramki z nagrodą.
         private void btNowaGra_Click(object sender, EventArgs e)
         {
             if (drugiWybor != -1)

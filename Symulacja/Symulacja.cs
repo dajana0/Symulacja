@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Symulacja
 {
@@ -12,6 +8,7 @@ namespace Symulacja
         //tablica z bramkami
         bool[] bramki = { false, false, false };
 
+        //ustawia wszystkie bramki na przegrane
         public void Resetuj()
         {
             for (int x = 0; x < bramki.Length; x++)
@@ -20,6 +17,7 @@ namespace Symulacja
             }
         }
 
+        //ustawia losową bramkę na wygraną
         public void Przygotuj()
         {
             Random rnd = new Random();
@@ -27,6 +25,7 @@ namespace Symulacja
             bramki[losowyNrBramkiWygranej] = true;
         }
 
+        //zwraca wygraną bramkę
         public int PobierzBramkeWygrana()
         {
             for (int x = 0; x < bramki.Length; x++)
@@ -36,6 +35,7 @@ namespace Symulacja
             return -1;
         }
 
+        //zwraca bramkę pustą na podstawie pierwszej wybranej bramki
         public int PobierzBramkePusta(int wybrana_bramka)
         {
             List<int> result = new List<int>();
